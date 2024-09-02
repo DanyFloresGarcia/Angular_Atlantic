@@ -1,0 +1,57 @@
+<div class="form-container">
+  <h2 class="form-title">Préstamo</h2>
+  
+  <div class="form-content">
+    <h3 class="form-subtitle">Crear Préstamo</h3>
+    
+    <form (ngSubmit)="createItem()" #prestamoForm="ngForm">
+      <div class="form-group">
+        <label for="solicitudId">Solicitud ID:</label>
+        <input 
+          id="solicitudId" 
+          class="form-control" 
+          [(ngModel)]="newItem.solicitudId" 
+          name="solicitudId" 
+          placeholder="Ingrese Solicitud ID" 
+          required>
+      </div>
+      
+      <div class="form-group">
+        <label for="estadoId">Estado ID:</label>
+        <input 
+          id="estadoId" 
+          class="form-control" 
+          [(ngModel)]="newItem.estadoId" 
+          name="estadoId" 
+          placeholder="Ingrese Estado ID" 
+          required>
+      </div>
+      
+      <div class="form-group">
+        <label for="fechaPrestamo">Fecha de Préstamo:</label>
+        <input 
+          id="fechaPrestamo" 
+          type="datetime-local" 
+          class="form-control" 
+          [(ngModel)]="newItem.fechaPrestamo" 
+          name="fechaPrestamo" 
+          required>
+      </div>
+      
+      <div class="form-group">
+        <label for="usuarioCreadorId">Usuario Creador ID:</label>
+        <input 
+          id="usuarioCreadorId" 
+          class="form-control" 
+          [(ngModel)]="newItem.usuarioCreadorId" 
+          name="usuarioCreadorId" 
+          placeholder="Ingrese Usuario Creador ID" 
+          required>
+      </div>
+      
+      <div *ngIf="apiError" class="error-message">{{ apiError }}</div>
+      <div *ngIf="apiSuccess" class="error-success">{{ apiSuccess }}</div>
+      <button type="submit" class="btn-submit">Crear</button>
+    </form>
+  </div>
+</div>
